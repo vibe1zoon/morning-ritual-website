@@ -1,0 +1,7 @@
+# .gitignore 파일
+
+# 1. 설치된 라이브러리 폴더 (용량이 매우 큼)
+node_modules/
+
+# 2. (필수) API 키가 들어있는 .env 파일
+.env

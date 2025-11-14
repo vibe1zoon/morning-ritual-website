@@ -1,0 +1,157 @@
+/* --- 기본 및 레이아웃 --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    margin: 0;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #1c1e21;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+main {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    color: #888;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+}
+
+/* --- 로딩 스피너 --- */
+.spinner-container {
+    display: none; /* 평소엔 숨김 */
+    padding: 50px;
+    text-align: center;
+}
+.spinner {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #007bff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* --- 그리드 및 카드 디자인 --- */
+.grid-container {
+    display: grid;
+    /* auto-fill: 공간이 허락하는 한 카드를 채움
+      minmax(280px, 1fr): 카드의 최소 너비는 280px, 최대 너비는 1fr (균등 분배)
+    */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    min-height: 200px; /* 로딩 중에도 최소 높이 유지 */
+}
+
+.article-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    overflow: hidden; /* 이미지가 카드를 뚫고 나가지 않도록 */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+}
+
+.card-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; /* 이미지가 찌그러지지 않고 비율에 맞게 채워짐 */
+    background-color: #eee;
+}
+
+.card-content {
+    padding: 20px;
+    flex-grow: 1; /* 카드의 높이가 달라도 하단 '더보기' 버튼 정렬되도록 */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.15rem;
+    color: #111;
+}
+
+.card-content .details {
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+.card-content .details span {
+    display: block; /* 세부 정보를 세로로 나열 */
+    margin-bottom: 5px;
+}
+
+.card-content a {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    color: #007bff;
+    padding: 8px 12px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    margin-top: auto; /* '더보기' 버튼을 항상 카드 하단에 고정 */
+    text-align: center;
+}
+
+.card-content a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* --- 페이지네이션 --- */
+.pagination {
+    text-align: center;
+    margin-top: 40px;
+}
+.pagination button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 10px;
+}
+.pagination button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+.pagination button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+.pagination span {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    display: inline-block;
+    vertical-align: middle;
+}
