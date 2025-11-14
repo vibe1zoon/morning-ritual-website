@@ -22,9 +22,7 @@ const KOFA_API_URL = 'https://api.kcisa.kr/openapi/API_CIA_098/request';
 
 // CORS 설정: http://localhost (혹은 127.0.0.1)에서 오는 요청을 허용합니다.
 // (index.html 파일을 브라우저에서 열 때의 주소 기준)
-app.use(cors({
-
-}));
+app.use(cors());
 // 🔽🔽🔽 [이 부분 추가] 🔽🔽🔽
 // 1. 현재 폴더(.)의 정적 파일(index.html, style.css, script.js)을 제공
 app.use(express.static('.')); 
