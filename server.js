@@ -7,6 +7,7 @@ require('dotenv').config(); // ◀◀◀ 1. .env 파일을 읽어오는 코드 �
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
 // process.env.PORT: "Render가 지정한 포트 번호가 있다면 그것을 사용해라." (배포 환경)
 // || 3000: "만약 Render가 지정한 포트 번호가 없다면(예: 내 PC에서 로컬로 실행할 때), 3000번을 사용해라." (로컬 환경)
 
@@ -24,7 +25,11 @@ const KOFA_API_URL = 'https://api.kcisa.kr/openapi/API_CIA_098/request';
 app.use(cors({
 
 }));
+// 🔽🔽🔽 [이 부분 추가] 🔽🔽🔽
+// 1. 현재 폴더(.)의 정적 파일(index.html, style.css, script.js)을 제공
+app.use(express.static('.')); 
 
+// 🔼🔼🔼 [여기까지 추가] 🔼🔼🔼
 // 프론트엔드(index.html)가 호출할 주소: http://localhost:3000/api/articles
 app.get('/api/articles', async (req, res) => {
     

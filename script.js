@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextButton = document.getElementById('next-button');
     const pageInfo = document.getElementById('page-info');
 
-    const MY_BACKEND_API_URL = 'http://localhost:3000/api/articles';
+    const MY_BACKEND_API_URL = '/api/articles'; // ◀◀◀ 상대 경로로 변경
     
     // 상태 관리 변수
     let currentPage = 1;
